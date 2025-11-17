@@ -1,0 +1,42 @@
+import { companyInfo, companyValues } from '../data/siteContent'
+
+const AboutSection = ({ compact = false }) => (
+  <section className="bg-white py-16" id="about">
+    <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+      <div>
+        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-highlight">About Us</p>
+        <h2 className="mt-3 text-3xl font-semibold text-brand-primary">Engineering Sejak {companyInfo.founded}</h2>
+        <p className="mt-4 text-base leading-7 text-brand-secondary">{companyInfo.description}</p>
+        <div className="mt-6 grid grid-cols-2 gap-4 rounded-2xl bg-brand-background p-6 text-center text-brand-primary sm:max-w-md">
+          <div>
+            <p className="text-3xl font-semibold">{companyInfo.team}+</p>
+            <p className="text-xs uppercase tracking-wide text-brand-secondary/70">Engineer</p>
+          </div>
+          <div>
+            <p className="text-3xl font-semibold">150+</p>
+            <p className="text-xs uppercase tracking-wide text-brand-secondary/70">Project</p>
+          </div>
+        </div>
+      </div>
+      <div className="space-y-6">
+        {companyValues.map((value) => (
+          <div key={value.title} className="rounded-2xl border border-brand-accent/60 bg-brand-background/60 p-6 shadow-sm">
+            <p className="text-sm font-semibold uppercase tracking-wide text-brand-secondary/80">Nilai</p>
+            <h3 className="mt-1 text-xl font-semibold text-brand-primary">{value.title}</h3>
+            <p className="mt-2 text-sm leading-6 text-brand-secondary">{value.description}</p>
+          </div>
+        ))}
+        {!compact && (
+          <div className="rounded-2xl border border-dashed border-brand-highlight px-6 py-4 text-sm text-brand-secondary">
+            <p>
+              Kami membuka kesempatan kolaborasi dengan integrator lokal, kampus vokasi, dan vendor komponen yang
+              selaras dengan visi kami.
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+)
+
+export default AboutSection
